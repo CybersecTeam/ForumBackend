@@ -1,0 +1,27 @@
+{
+    "name": "forobackend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon src/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CamielaTeam/ForumBackend.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/CamielaTeam/ForumBackend/issues"
+    },
+    "homepage": "https://github.com/CamielaTeam/ForumBackend#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "custom-env": "^2.0.1",
+        "express": "^4.17.1",
+        "mongoose": "^5.9.20",
+        "nodemon": "^2.0.4"
+    }
+}
