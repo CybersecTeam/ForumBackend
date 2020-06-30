@@ -10,11 +10,11 @@ const createForum = (req,res) => {
     const dateCreated = Date.now();
 
     const newForum = new Forum({
-        title,
+        title: title,
         body: forumBody,
         comments: [],
-        creator,
-        dateCreated
+        creator: creator,
+        dateCreated: dateCreated
     });
     
     newForum.save((err) => {
