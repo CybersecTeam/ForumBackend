@@ -29,7 +29,7 @@ app.use(
 app.use(bodyParser.json());
 
 //  Global routing configuration
-app.use(require("./routes/forum"));
+app.use(require("./routes/index.js"));
 
 
 //  Using https or http depending of environment variable CURRENT_SERVER

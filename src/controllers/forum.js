@@ -1,4 +1,4 @@
-const Forum = req('../models/forum');
+const Forum = require("../models/forum");
 
 
 const createForum = (req,res) => {
@@ -29,6 +29,43 @@ const createForum = (req,res) => {
     })
 }
 
+const getForums = (req, res) => {
+    Forum.find({},"title creator dateCreated", (err, forumsDB) => {
+        if(err){
+            return res.status(500).json({
+                errors: ["Server error"]
+            })
+        }
+        res.json({
+            forums: forumsDB
+        })
+    })
+}
+
+const getForum = (req, res) => {
+    const forumId = req.params.forumId;
+    Forum.findById(forumId, (err, forumDB) => {
+        if(err){
+            return res.status(500).json({
+                errors: ["Server error"]
+            })
+        }
+        forumDB.populate("comments", err => {
+            if(err){
+                return res.status(500).json({
+                    errors: ["Server error"]
+                })
+            }
+            res.json({
+                forums: forumsDB
+            })
+        })
+    })
+}
+
+
 module.exports = {
-    createForum 
+    createForum,
+    getForums,
+    getForum
 }
