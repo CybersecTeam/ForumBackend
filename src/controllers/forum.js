@@ -3,22 +3,19 @@ const Forum = require("../models/forum");
 
 const createForum = (req,res) => {
     const body = req.body;
-    console.log(body);
     const creator = body.nickname;
     const title = body.title;
     const forumBody = body.forumBody;
     const dateCreated = Date.now();
 
     let newForum = new Forum({
-        title: title,
+        title,
         body: forumBody,
         comments: [],
-        creator: creator,
-        dateCreated: dateCreated
+        creator,
+        dateCreated
     });
     
-    console.log(newForum);
-
     newForum.save((err) => {
         if(err){
             console.log(err);
