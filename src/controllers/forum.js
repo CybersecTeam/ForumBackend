@@ -2,6 +2,7 @@ const Forum = require("../models/forum");
 
 
 const createForum = (req,res) => {
+    console.log("Me llego la peticion");
     const body = req.body;
     const creator = body.nickname;
     const title = body.title;
