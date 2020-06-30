@@ -18,12 +18,14 @@ const createComment = (req,res) => {
 
     newComment.save((err, newCommentDB) => {
         if(err){
+            console.log(err);
             return res.status(500).json({
                 errors: ["Server error"]
             })
         }
         Forum.findById(forum, (err, forumDB) => {
             if(err){
+                console.log(err);
                 return res.status(500).json({
                     errors: ["Server error"]
                 })
@@ -31,6 +33,7 @@ const createComment = (req,res) => {
             forumDB.comments.push(newCommentDB._id);
             forumDB.save((err, forumUpdatedDB) => {
                 if(err){
+                    console.log(err);
                     return res.status(500).json({
                         errors: ["Server error"]
                     })

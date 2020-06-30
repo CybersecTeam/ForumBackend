@@ -2,7 +2,6 @@ const Forum = require("../models/forum");
 
 
 const createForum = (req,res) => {
-    console.log("Me llego la peticion");
     const body = req.body;
     const creator = body.nickname;
     const title = body.title;
@@ -19,6 +18,7 @@ const createForum = (req,res) => {
     
     newForum.save((err) => {
         if(err){
+            console.log(err);
             return res.status(500).json({
                 errors: ["Server error"]
             })
@@ -33,6 +33,7 @@ const createForum = (req,res) => {
 const getForums = (req, res) => {
     Forum.find({},"title creator dateCreated", (err, forumsDB) => {
         if(err){
+            console.log(err);
             return res.status(500).json({
                 errors: ["Server error"]
             })
@@ -47,12 +48,14 @@ const getForum = (req, res) => {
     const forumId = req.params.forumId;
     Forum.findById(forumId, (err, forumDB) => {
         if(err){
+            console.log(err);
             return res.status(500).json({
                 errors: ["Server error"]
             })
         }
         forumDB.populate("comments", err => {
             if(err){
+                console.log(err);
                 return res.status(500).json({
                     errors: ["Server error"]
                 })
