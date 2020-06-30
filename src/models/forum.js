@@ -30,7 +30,7 @@ let forumSchema = new Schema({
   }
 });
 
-tagSchema.plugin(uniqueValidator, {
+forumSchema.plugin(uniqueValidator, {
   message: "{PATH} must be unique"
 });
 
