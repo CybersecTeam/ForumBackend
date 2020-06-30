@@ -9,7 +9,7 @@ const createForum = (req,res) => {
     const forumBody = body.forumBody;
     const dateCreated = Date.now();
 
-    const newForum = new Forum({
+    let newForum = new Forum({
         title: title,
         body: forumBody,
         comments: [],
@@ -17,6 +17,8 @@ const createForum = (req,res) => {
         dateCreated: dateCreated
     });
     
+    console.log(newForum);
+
     newForum.save((err) => {
         if(err){
             console.log(err);
