@@ -3,6 +3,7 @@ const Forum = require("../models/forum");
 
 const createForum = (req,res) => {
     const body = req.body;
+    console.log(body);
     const creator = body.nickname;
     const title = body.title;
     const forumBody = body.forumBody;
