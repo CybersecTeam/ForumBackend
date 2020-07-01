@@ -55,6 +55,7 @@ const getForum = (req, res) => {
         errors: ["Server error"],
       });
     }
+    console.log(forumDB);
     forumDB.populate("comments", (err) => {
       if (err) {
         console.log(err);
