@@ -65,7 +65,7 @@ const getForum = (req, res) => {
         });
       }
       res.json({
-        forums: forumsDB,
+        forums: forumDB,
       });
     });
   });
