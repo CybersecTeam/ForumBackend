@@ -48,8 +48,6 @@ const getForums = (req, res) => {
 
 const getForum = (req, res) => {
   const forumId = req.params.id;
-  console.log(req.params.id);
-  console.log(forumId);
   Forum.findById(forumId, (err, forumDB) => {
     if (err) {
       console.log(err);
