@@ -6,6 +6,9 @@ const app = express();
 const bodyParser = require("body-parser");
 const https = require("https");
 const fs = require("fs");
+const cors = require('cors');
+
+
 
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -20,6 +23,8 @@ app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
+
+app.use(cors());
 
 app.use(
   bodyParser.urlencoded({
