@@ -47,7 +47,7 @@ const getForums = (req, res) => {
 };
 
 const getForum = (req, res) => {
-  const forumId = req.query.forumId;
+  const forumId = req.params.forumId;
   Forum.findById(forumId, (err, forumDB) => {
     if (err) {
       console.log(err);
@@ -55,7 +55,6 @@ const getForum = (req, res) => {
         errors: ["Server error"],
       });
     }
-    console.log(forumDB);
     forumDB.populate("comments", (err) => {
       if (err) {
         console.log(err);
