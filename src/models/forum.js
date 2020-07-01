@@ -7,31 +7,36 @@ let forumSchema = new Schema({
   title: {
     type: String,
     unique: true,
-    required: true
+    required: true,
   },
   body: {
     type: String,
-    required: true
+    required: true,
   },
   comments: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Comment"
-    }
+      ref: "Comment",
+    },
   ],
   creator: {
-      type: String,
-      required: true
+    type: String,
+    required: true,
   },
   dateCreated: {
     type: Date,
     default: Date.now,
-    required: true
-  }
+    required: true,
+  },
+  tags: [
+    {
+      type: String,
+    },
+  ],
 });
 
 forumSchema.plugin(uniqueValidator, {
-  message: "{PATH} must be unique"
+  message: "{PATH} must be unique",
 });
 
 module.exports = mongoose.model("Forum", forumSchema);
